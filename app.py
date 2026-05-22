@@ -268,7 +268,7 @@ Responde SOLO con el JSON."""
 
     model = genai.GenerativeModel(
         model_name="gemini-2.0-flash",
-        tools="google_search",
+        tools=[{"google_search": {}}],
         system_instruction=SYSTEM_PROMPT,
     )
     response = model.generate_content(user_message)
@@ -777,4 +777,3 @@ if "result_asoc" in st.session_state:
         '<p style="text-align:center;font-size:0.72rem;color:#94a3b8;margin-top:32px;">'
         'ARIA Asociaciones · Portafolio Estratégico · Powered by Google Gemini 2.0 Flash</p>',
         unsafe_allow_html=True)
-
