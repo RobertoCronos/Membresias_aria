@@ -20,19 +20,21 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap');
 html, body, [class*="css"] { font-family: 'Sora', sans-serif; }
 #MainMenu, footer, header { visibility: hidden; }
-.block-container { padding-top: 2rem; padding-bottom: 3rem; max-width: 860px; }
+.block-container { padding-top: 0 !important; padding-bottom: 3rem; max-width: 860px; }
+body { background: #F5F0D0; }
+.stApp { background: linear-gradient(160deg, #E8C800 0%, #B88A00 28%, #E8D870 50%, #F5F0D0 72%, #FAFAF8 100%); min-height: 100vh; }
 
 .aria-header {
-    background: linear-gradient(160deg, #E8C800 0%, #B88A00 35%, #F5F0D0 70%, #FAFAF5 100%);
-    border-radius: 16px; padding: 36px 36px 32px; text-align: center;
-    margin-bottom: 24px; border: none;
+    background: transparent;
+    border-radius: 0; padding: 52px 36px 40px; text-align: center;
+    margin-bottom: 0; border: none;
     position: relative; overflow: hidden;
 }
 .aria-eyebrow {
     display: inline-flex; align-items: center; gap: 6px;
     background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.45);
     border-radius: 100px; padding: 5px 16px;
-    font-size: 10px; letter-spacing: 2px; color: rgba(50,30,0,0.8);
+    font-size: 10px; letter-spacing: 2px; color: rgba(40,25,0,0.75);
     text-transform: uppercase; font-weight: 600; margin-bottom: 16px;
 }
 .aria-title { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: #1A1200; margin: 0; }
