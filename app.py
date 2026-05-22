@@ -190,7 +190,7 @@ FILTROS DE EXCLUSIÓN:
 ✗ Directorios o agregadores sin comunidad institucional
 ✗ Organizaciones excesivamente locales sin impacto internacional
 ✗ Organizaciones político-partidistas o de reputación dudosa
-✗ Organismos internacionales gubernamentales y NGO
+✗ Organismos gubernamentales y ONG
 ✗ Journals y revistas indexadas
 ✗ Organismos de naciones unidas
 
