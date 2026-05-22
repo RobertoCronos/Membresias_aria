@@ -589,14 +589,22 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-with st.expander("🔑 Configurar API Key de Gemini", expanded="gemini_key" not in st.session_state):
-    api_key_input = st.text_input(
-        "Google Gemini API Key", type="password", placeholder="AIza...",
-        help="Obtén tu clave gratuita en https://aistudio.google.com/apikey"
-    )
-    if api_key_input:
-        st.session_state["gemini_key"] = api_key_input
-        st.success("✅ API Key guardada para esta sesión")
+# Cargar API Key desde Secrets automáticamente
+if "gemini_key" not in st.session_state:
+    secret_key = st.secrets.get("GEMINI_API_KEY", "")
+    if secret_key:
+        st.session_state["gemini_key"] = secret_key
+
+# Mostrar campo manual solo si no hay key precargada
+if not st.session_state.get("gemini_key"):
+    with st.expander("🔑 Configurar API Key de Gemini", expanded=True):
+        api_key_input = st.text_input(
+            "Google Gemini API Key", type="password", placeholder="AIza...",
+            help="Obtén tu clave gratuita en https://aistudio.google.com/apikey"
+        )
+        if api_key_input:
+            st.session_state["gemini_key"] = api_key_input
+            st.success("✅ API Key guardada para esta sesión")
 
 api_key = st.session_state.get("gemini_key", "")
 
@@ -769,3 +777,4 @@ if "result_asoc" in st.session_state:
         '<p style="text-align:center;font-size:0.72rem;color:#94a3b8;margin-top:32px;">'
         'ARIA Asociaciones · Portafolio Estratégico · Powered by Google Gemini 2.0 Flash</p>',
         unsafe_allow_html=True)
+
