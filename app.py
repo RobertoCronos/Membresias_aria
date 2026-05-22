@@ -273,10 +273,11 @@ Responde SOLO con el JSON."""
     response = model.generate_content(user_message)
     raw = response.text
     try:
-        clean = re.sub(r'```json|```', '', raw).strip()
-        match = re.search(r'\{[\s\S]*\}', clean)
-        if match:
-            return json.loads(match.group())
+        clean = re.sub(r'```[a-z]*', '', raw)
+        clean = clean.replace('`', '').strip()
+        start = clean.index('{')
+        end = clean.rindex('}') + 1
+        return json.loads(clean[start:end])
     except Exception:
         pass
     return {"asociaciones": [], "conceptos": [], "google_dorks": [], "_raw": raw[:800]}
