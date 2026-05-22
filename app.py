@@ -191,6 +191,8 @@ FILTROS DE EXCLUSIÓN:
 ✗ Organizaciones excesivamente locales sin impacto internacional
 ✗ Organizaciones político-partidistas o de reputación dudosa
 ✗ Organismos internacionales gubernamentales y NGO
+✗ Journals y revistas indexadas
+✗ Organismos de naciones unidas
 
 PRIORIZACIÓN ESTRATÉGICA — dar mayor prioridad a:
 - Organizaciones que eleven el prestigio internacional percibido
