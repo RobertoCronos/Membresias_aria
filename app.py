@@ -8,7 +8,7 @@ from datetime import datetime
 
 # ── Page config ──────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="ARIA Asociaciones",
+    page_title="ARIA Membresias",
     page_icon="🏛",
     layout="centered",
     initial_sidebar_state="collapsed",
