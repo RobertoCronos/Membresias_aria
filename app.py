@@ -267,7 +267,7 @@ Asegúrate de incluir mínimo 50 organizaciones y que todas tengan URL oficial v
 Responde SOLO con el JSON."""
 
     model = genai.GenerativeModel(
-        model_name="gemini-2.0-flash",
+        model_name="gemini-1.5-flash",
         system_instruction=SYSTEM_PROMPT,
     )
     response = model.generate_content(user_message)
