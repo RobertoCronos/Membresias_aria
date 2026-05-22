@@ -8,8 +8,8 @@ from datetime import datetime
 
 # ── Page config ──────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="ARIA Asociaciones",
-    page_icon="🏛",
+    page_title="ARIA Membresías",
+    page_icon="🏆",
     layout="centered",
     initial_sidebar_state="collapsed",
 )
@@ -23,29 +23,32 @@ html, body, [class*="css"] { font-family: 'Sora', sans-serif; }
 .block-container { padding-top: 2rem; padding-bottom: 3rem; max-width: 860px; }
 
 .aria-header {
-    background: linear-gradient(135deg, #0D1B2A 0%, #2D1B4E 100%);
-    border-radius: 16px; padding: 28px 36px; text-align: center;
-    margin-bottom: 24px; border: 1px solid rgba(180,140,255,0.2);
+    background: linear-gradient(160deg, #E8C800 0%, #B88A00 35%, #F5F0D0 70%, #FAFAF5 100%);
+    border-radius: 16px; padding: 36px 36px 32px; text-align: center;
+    margin-bottom: 24px; border: none;
     position: relative; overflow: hidden;
 }
-.aria-header::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, #2D1B4E, #7C3AED, #C9A84C);
+.aria-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.45);
+    border-radius: 100px; padding: 5px 16px;
+    font-size: 10px; letter-spacing: 2px; color: rgba(50,30,0,0.8);
+    text-transform: uppercase; font-weight: 600; margin-bottom: 16px;
 }
-.aria-title { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: #fff; margin: 0; }
-.aria-title em { font-style: italic; color: #C4B5FD; }
-.aria-sub { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-top: 6px; }
+.aria-title { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: #1A1200; margin: 0; }
+.aria-title em { font-style: italic; color: #7A4F00; }
+.aria-sub { font-size: 0.82rem; color: rgba(50,30,0,0.58); margin-top: 6px; }
 
 .section-label {
     font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase;
-    color: #8A9BAE; font-weight: 600; margin-bottom: 4px;
+    color: #9A8000; font-weight: 600; margin-bottom: 4px;
 }
 
 /* Layer badges */
 .layer-badge { display: inline-block; border-radius: 20px; padding: 2px 10px;
     font-size: 0.68rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
-.layer-1 { background: #EDE9FE; color: #5B21B6; }
-.layer-2 { background: #DBEAFE; color: #1D4ED8; }
+.layer-1 { background: #FFFDE0; color: #7A6000; }
+.layer-2 { background: #FFF9C0; color: #5C4A00; }
 .layer-3 { background: #FFF7ED; color: #9A3412; }
 
 /* Risk badges */
@@ -64,9 +67,9 @@ html, body, [class*="css"] { font-family: 'Sora', sans-serif; }
     background: #f8fafc; border: 1px solid #e2e8f0;
     border-radius: 14px; padding: 18px 20px; margin-bottom: 12px;
 }
-.sw-card.l1 { border-left: 4px solid #7C3AED; }
-.sw-card.l2 { border-left: 4px solid #1D4ED8; }
-.sw-card.l3 { border-left: 4px solid #EA580C; }
+.sw-card.l1 { border-left: 4px solid #E8C800; }
+.sw-card.l2 { border-left: 4px solid #D4A800; }
+.sw-card.l3 { border-left: 4px solid #B88A00; }
 .sw-name  { font-size: 1rem; font-weight: 600; color: #0D1B2A; margin-bottom: 4px; }
 .sw-desc  { font-size: 0.82rem; color: #475569; line-height: 1.5; margin-bottom: 6px; }
 .sw-detail{ font-size: 0.78rem; color: #64748b; margin-bottom: 2px; }
@@ -81,30 +84,43 @@ html, body, [class*="css"] { font-family: 'Sora', sans-serif; }
     height: 6px; border-radius: 3px; flex: 1;
     background: linear-gradient(90deg, #7C3AED, #C4B5FD);
 }
+.price-pill {
+    display: inline-flex; align-items: center; gap: 4px;
+    border-radius: 100px; padding: 2px 9px;
+    font-size: 10px; font-weight: 600; margin-left: 4px;
+}
+.price-free { background: #ECFDF5; color: #059669; border: 0.5px solid #A7F3D0; }
+.price-paid { background: #FFFBEB; color: #D97706; border: 0.5px solid #FDE68A; }
+.price-inst { background: #FFFDE0; color: #7A6000; border: 0.5px solid #E8D800; }
+.score-track { flex: 1; height: 5px; background: #F5E88A; border-radius: 3px; overflow: hidden; }
+.score-fill  { height: 100%; border-radius: 3px; }
+.score-num   { font-size: 11px; font-weight: 600; color: #334155; min-width: 32px; text-align: right; }
+.score-lbl   { font-size: 10px; color: #94A3B8; font-weight: 500; white-space: nowrap; min-width: 56px; }
+.card-divider { height: 0.5px; background: #E8D800; margin: 10px 0; opacity: 0.4; }
 
 .pkg-card {
-    background: linear-gradient(135deg, #0D1B2A, #2D1B4E);
+    background: linear-gradient(135deg, #2A2000, #4A3800);
     border-radius: 14px; padding: 18px 20px; margin-bottom: 12px; color: white;
 }
 .pkg-title  { font-size: 1rem; font-weight: 600; color: #C4B5FD; margin-bottom: 4px; }
 .pkg-obj    { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
 .pkg-orgs   { font-size: 0.8rem; color: rgba(255,255,255,0.85); line-height: 1.6; }
 .pkg-benefit{ font-size: 0.78rem; color: #86EFAC; margin-top: 8px; }
-.pkg-pos    { font-size: 0.75rem; color: #FCD34D; margin-top: 4px; }
+.pkg-pos    { font-size: 0.75rem; color: #FFE500; margin-top: 4px; }
 
 .dork-card {
     background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px;
     padding: 10px 14px; margin-bottom: 8px; display: flex; align-items: flex-start; gap: 10px;
 }
 .dork-num  { font-size: 0.75rem; color: #94a3b8; font-weight: 600; min-width: 20px; }
-.dork-text { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: #5B21B6; line-height: 1.5; flex: 1; word-break: break-all; }
+.dork-text { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: #7A6000; line-height: 1.5; flex: 1; word-break: break-all; }
 
 .stats-bar {
-    background: #0D1B2A; border-radius: 10px; padding: 12px 20px;
+    background: #2A2000; border-radius: 10px; padding: 12px 20px;
     display: flex; gap: 20px; align-items: center; margin-bottom: 20px; flex-wrap: wrap;
 }
 .stat-item { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
-.stat-item span { color: #C4B5FD; font-weight: 600; }
+.stat-item span { color: #FFE500; font-weight: 600; }
 
 .aria-divider { height: 1px; background: #e2e8f0; margin: 24px 0; }
 .layer-legend { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -113,10 +129,10 @@ html, body, [class*="css"] { font-family: 'Sora', sans-serif; }
 
 /* Streamlit overrides */
 .stButton > button {
-    background: linear-gradient(135deg, #2D1B4E, #7C3AED) !important;
-    color: white !important; border: none !important; border-radius: 10px !important;
+    background: linear-gradient(135deg, #7A6000, #E8C800) !important;
+    color: #1A1A00 !important; border: none !important; border-radius: 10px !important;
     padding: 0.6rem 2rem !important; font-family: 'Sora', sans-serif !important;
-    font-weight: 500 !important; font-size: 0.95rem !important; width: 100% !important;
+    font-weight: 600 !important; font-size: 0.95rem !important; width: 100% !important;
 }
 .stButton > button:hover { opacity: 0.88 !important; }
 .stTextArea textarea {
@@ -126,7 +142,7 @@ html, body, [class*="css"] { font-family: 'Sora', sans-serif; }
 .stFileUploader { border: 1.5px dashed #94a3b8 !important; border-radius: 12px !important; padding: 8px !important; }
 .stTextInput input { border-radius: 10px !important; border: 1px solid #cbd5e1 !important; }
 .stDownloadButton > button {
-    background: #5B21B6 !important; color: white !important; border: none !important;
+    background: #D4A800 !important; color: #ffffff !important; border: none !important;
     border-radius: 10px !important; font-family: 'Sora', sans-serif !important;
     font-weight: 500 !important; width: 100% !important;
 }
@@ -342,7 +358,7 @@ def build_excel(data: dict) -> bytes:
     # ── HOJA 1: PORTAFOLIO ──────────────────────────────────────────
     ws1 = wb.active
     ws1.title = "Portafolio Estratégico"
-    title_row(ws1, "PORTAFOLIO ESTRATÉGICO DE ASOCIACIONES — ARIA Buscador", 12, "0D1B2A")
+    title_row(ws1, "PORTAFOLIO ESTRATÉGICO DE MEMBRESÍAS — ARIA Membresías", 12, "2A2000")
 
     h1 = ["#", "Nombre", "Tipo de Organización", "Tipo de Membership",
           "Capa", "Tipo de Acceso", "Link Oficial",
@@ -350,7 +366,7 @@ def build_excel(data: dict) -> bytes:
           "Valor Visible para el Estudiante", "Networking", "Prestigio", "Riesgo Reputacional"]
     w1 = [4, 26, 22, 22, 7, 20, 32, 34, 34, 30, 10, 10, 14]
     for i, (h, w) in enumerate(zip(h1, w1), 1):
-        _hdr(ws1, 2, i, h, bg="2D1B4E")
+        _hdr(ws1, 2, i, h, bg="3D3500")
         ws1.column_dimensions[openpyxl.utils.get_column_letter(i)].width = w
     ws1.row_dimensions[2].height = 34
 
@@ -414,12 +430,12 @@ def build_excel(data: dict) -> bytes:
 
     # ── HOJA 2: PAQUETES ────────────────────────────────────────────
     ws2 = wb.create_sheet("Paquetes Estratégicos")
-    title_row(ws2, "PAQUETES ESTRATÉGICOS POR CONTEXTO", 6, "2D1B4E")
+    title_row(ws2, "PAQUETES ESTRATÉGICOS POR CONTEXTO", 6, "3D3500")
     h2 = ["Paquete", "Objetivo Estratégico", "Organizaciones", "Beneficio para el Estudiante",
           "Valor Competitivo Institucional", "Tipo de Posicionamiento"]
     w2 = [22, 38, 50, 36, 36, 28]
     for i, (h, w) in enumerate(zip(h2, w2), 1):
-        _hdr(ws2, 2, i, h, bg="2D1B4E")
+        _hdr(ws2, 2, i, h, bg="3D3500")
         ws2.column_dimensions[openpyxl.utils.get_column_letter(i)].width = w
     ws2.row_dimensions[2].height = 30
 
@@ -428,7 +444,7 @@ def build_excel(data: dict) -> bytes:
         pkg = a.get("paquete", "Otros")
         paquetes.setdefault(pkg, []).append(a)
 
-    pkg_bgs = ["2D1B4E","1D4ED8","166534","7C3AED","9A3412","065F46","0D1B2A","1A3C5E","5B21B6","3730A3"]
+    pkg_bgs = ["3D3500","1D4ED8","166534","7C3AED","9A3412","065F46","0D1B2A","1A3C5E","5B21B6","3730A3"]
     row2 = 3
     for pi, pname in enumerate(PAQUETES_ORDER):
         sws = paquetes.get(pname, [])
@@ -457,13 +473,13 @@ def build_excel(data: dict) -> bytes:
 
     # ── HOJA 3: CONCEPTOS ───────────────────────────────────────────
     ws3 = wb.create_sheet("Mapa de Conceptos")
-    title_row(ws3, "MAPA DE CONCEPTOS DEL DOSSIER — ECOSISTEMA DE ASOCIACIONES", 8, "2D1B4E")
+    title_row(ws3, "MAPA DE CONCEPTOS DEL DOSSIER — ECOSISTEMA DE ASOCIACIONES", 8, "3D3500")
     h3 = ["Concepto / Palabra Clave", "Módulo Relacionado", "Tecnologías Asociadas",
           "Métodos / Frameworks", "Áreas de Aplicación", "Tipo de Organizaciones",
           "Potencial de Networking", "Tendencia Académica"]
     w3 = [28, 24, 30, 28, 28, 28, 20, 28]
     for i, (h, w) in enumerate(zip(h3, w3), 1):
-        _hdr(ws3, 2, i, h, bg="2D1B4E")
+        _hdr(ws3, 2, i, h, bg="3D3500")
         ws3.column_dimensions[openpyxl.utils.get_column_letter(i)].width = w
     ws3.row_dimensions[2].height = 30
 
@@ -481,7 +497,7 @@ def build_excel(data: dict) -> bytes:
 
     # ── HOJA 4: SCORING ─────────────────────────────────────────────
     ws4 = wb.create_sheet("Scoring Estratégico")
-    title_row(ws4, "SCORING ESTRATÉGICO PONDERADO — EVALUACIÓN COMPARATIVA", 10, "0D1B2A")
+    title_row(ws4, "SCORING ESTRATÉGICO PONDERADO — EVALUACIÓN COMPARATIVA", 10, "2A2000")
 
     # Ponderaciones: Relevancia 25%, Prestigio 25%, CV 20%, Networking 15%, Diferenciación 15%
     h4 = ["#", "Nombre", "Capa",
@@ -496,7 +512,7 @@ def build_excel(data: dict) -> bytes:
           "SCORE\nPONDERADO"]
     w4 = [4, 30, 8, 14, 15, 12, 12, 10, 14, 12, 12, 14]
     for i, (h, w) in enumerate(zip(h4, w4), 1):
-        _hdr(ws4, 2, i, h, bg="2D1B4E")
+        _hdr(ws4, 2, i, h, bg="3D3500")
         ws4.column_dimensions[openpyxl.utils.get_column_letter(i)].width = w
     ws4.row_dimensions[2].height = 42
 
@@ -555,9 +571,9 @@ def build_excel(data: dict) -> bytes:
 
     # ── HOJA 5: GOOGLE DORKS ────────────────────────────────────────
     ws5 = wb.create_sheet("Google Dorks")
-    title_row(ws5, "GOOGLE DORKS — VERIFICACIÓN Y BÚSQUEDA AVANZADA DE ASOCIACIONES", 3, "2D1B4E")
+    title_row(ws5, "GOOGLE DORKS — VERIFICACIÓN Y BÚSQUEDA AVANZADA DE ASOCIACIONES", 3, "3D3500")
     for i, (h, w) in enumerate(zip(["#","Google Dork","Uso / Verificación Sugerida"],[6,80,40]),1):
-        _hdr(ws5, 2, i, h, bg="2D1B4E")
+        _hdr(ws5, 2, i, h, bg="3D3500")
         ws5.column_dimensions[openpyxl.utils.get_column_letter(i)].width = w
     ws5.row_dimensions[2].height = 26
 
@@ -584,8 +600,9 @@ def build_excel(data: dict) -> bytes:
 # ── UI ────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="aria-header">
-  <h1 class="aria-title">ARIA <em>Asociaciones</em></h1>
-  <p class="aria-sub">Portafolio estratégico de asociaciones y ecosistemas académicos internacionales</p>
+  <div class="aria-eyebrow">&#9670; Herramienta Académica</div>
+  <h1 class="aria-title">ARIA <em>Membresías</em></h1>
+  <p class="aria-sub">Portafolio estratégico de membresías y ecosistemas académicos internacionales</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -621,7 +638,7 @@ user_context = st.text_area(
     height=90
 )
 
-if st.button("🏛  Generar portafolio de asociaciones", use_container_width=True):
+if st.button("🏆  Generar portafolio de membresías", use_container_width=True):
     if not api_key:
         st.error("⚠️ Ingresa tu API Key de Gemini.")
     elif not uploaded and not user_context:
@@ -677,9 +694,9 @@ if "result_asoc" in st.session_state:
 
     st.markdown("""
     <div class="layer-legend">
-      <div class="legend-item"><div class="legend-dot" style="background:#7C3AED"></div>Capa 1 — Core del Dossier</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#1D4ED8"></div>Capa 2 — Disciplinas Relacionadas</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#EA580C"></div>Capa 3 — Ecosistema Estratégico</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#E8C800"></div>Capa 1 — Core del Dossier</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#D4A800"></div>Capa 2 — Disciplinas Relacionadas</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#B88A00"></div>Capa 3 — Ecosistema Estratégico</div>
     </div>""", unsafe_allow_html=True)
 
     tab1, tab2, tab3, tab4 = st.tabs([
@@ -696,41 +713,62 @@ if "result_asoc" in st.session_state:
         risk_cls    = {"Bajo":"risk-low","Medio":"risk-med","Alto":"risk-high"}
 
         for a in asocs:
-            capa = a.get("capa", 1)
-            risk = a.get("riesgo_reputacional","Bajo")
-            net  = a.get("potencial_networking","Medio")
-            pre  = a.get("prestigio_internacional","Medio")
-            url  = a.get("url_oficial","")
-            tipo = a.get("tipo_organizacion","")
-
-            scores = [a.get(k,3) for k in
-                      ["score_relevancia","score_prestigio","score_cv",
-                       "score_networking","score_diferenciacion"]]
-            ponderado = round(scores[0]*0.25+scores[1]*0.25+scores[2]*0.20+scores[3]*0.15+scores[4]*0.15, 2)
-            bar_pct   = int(ponderado / 5 * 100)
-
-            link_html = f'<a href="{url}" target="_blank" style="color:#7C3AED;font-size:0.78rem;">🌐 Sitio oficial</a>' if url else ""
-
+            capa=a.get("capa",1); risk=a.get("riesgo_reputacional","Bajo")
+            net=a.get("potencial_networking","Medio"); pre=a.get("prestigio_internacional","Medio")
+            url=a.get("url_oficial",""); tipo=a.get("tipo_organizacion","")
+            s_rel=a.get("score_relevancia",3); s_pre=a.get("score_prestigio",3)
+            s_cv=a.get("score_cv",3); s_net=a.get("score_networking",3); s_dif=a.get("score_diferenciacion",3)
+            ponderado=round(s_rel*0.25+s_pre*0.25+s_cv*0.20+s_net*0.15+s_dif*0.15,2)
+            pond_pct=int(ponderado/5*100)
+            rel_pct=int(s_rel/5*100); pre_pct=int(s_pre/5*100); cv_pct=int(s_cv/5*100)
+            bar_col="linear-gradient(90deg,#E8C800,#059669)" if ponderado>=4 else ("linear-gradient(90deg,#E8C800,#D4A800)" if ponderado>=3 else "#D97706")
+            acceso=a.get("tipo_acceso","").lower()
+            if any(x in acceso for x in ["grat","free","sin cost","student member"]):
+                pcls,picon,plabel="price-free","ti-circle-check","Membership gratuito"
+            elif any(x in acceso for x in ["descuento","discount","reduced","academic discount"]):
+                pcls,picon,plabel="price-paid","ti-tag","Descuento académico"
+            else:
+                pcls,picon,plabel="price-inst","ti-building","Membership institucional"
+            link_html=f'<a href="{url}" target="_blank" style="color:#7A6000;font-size:12px;font-weight:500;">Sitio oficial</a>' if url else ""
+            capa_l=capa_labels.get(capa,""); badge_c=badge_cls.get(capa,"layer-1"); card_c=card_cls.get(capa,"l1"); risk_c=risk_cls.get(risk,"risk-low")
+            nombre=a.get("nombre",""); val_inst=a.get("valor_estrategico_institucional",""); rel_dos=a.get("relacion_dossier","")
+            val_est=a.get("valor_visible_estudiante",""); memb=a.get("tipo_membership",""); acc=a.get("tipo_acceso","")
             st.markdown(f"""
-            <div class="sw-card {card_cls.get(capa,'l1')}">
-              <div class="sw-name">{a.get('nombre','')}
-                <span class="org-type">{tipo}</span>
-                <span class="risk-badge {risk_cls.get(risk,'risk-low')}">Riesgo {risk}</span>
+            <div class="sw-card {card_c}">
+              <div class="sw-name">{nombre} <span class="org-type">{tipo}</span> <span class="risk-badge {risk_c}">Riesgo {risk}</span></div>
+              <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:6px;">
+                <span class="layer-badge {badge_c}">{capa_l}</span>
+                <span class="price-pill {pcls}"><i class="ti {picon}" aria-hidden="true" style="font-size:11px;"></i> {plabel}</span>
               </div>
-              <span class="layer-badge {badge_cls.get(capa,'layer-1')}">{capa_labels.get(capa,'')}</span>
-              <div class="sw-desc">{a.get('valor_estrategico_institucional','')}</div>
-              <div class="sw-detail"><strong>Módulo:</strong> {a.get('relacion_dossier','')}</div>
-              <div class="sw-detail"><strong>Para el estudiante:</strong> {a.get('valor_visible_estudiante','')}</div>
-              <div class="sw-detail"><strong>Membership:</strong> {a.get('tipo_membership','')} · <strong>Acceso:</strong> {a.get('tipo_acceso','')}</div>
-              <div class="sw-detail">
-                🌐 Networking: <strong>{net}</strong> &nbsp;|&nbsp; ⭐ Prestigio: <strong>{pre}</strong>
+              <div class="sw-desc">{val_inst}</div>
+              <div class="sw-detail"><strong>Módulo:</strong> {rel_dos}</div>
+              <div class="sw-detail"><strong>Para el estudiante:</strong> {val_est}</div>
+              <div class="sw-detail"><strong>Membership:</strong> {memb} · <strong>Acceso:</strong> {acc}</div>
+              <div class="sw-detail">Networking: <strong>{net}</strong> &nbsp;|&nbsp; Prestigio: <strong>{pre}</strong></div>
+              <div class="card-divider"></div>
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                <span class="score-lbl">Score ponderado</span>
+                <div class="score-track"><div class="score-fill" style="width:{pond_pct}%;background:{bar_col};"></div></div>
+                <span class="score-num">{ponderado}/5</span>
               </div>
-              <div class="score-bar">
-                <span class="score-label">Score ponderado:</span>
-                <span class="score-val">{ponderado}/5</span>
-                <div class="score-pill" style="max-width:{bar_pct}%;"></div>
+              <div style="display:flex;gap:10px;margin-top:4px;">
+                <div style="display:flex;align-items:center;gap:6px;flex:1;">
+                  <span class="score-lbl">Relevancia</span>
+                  <div class="score-track"><div class="score-fill" style="width:{rel_pct}%;background:#E8C800;"></div></div>
+                  <span class="score-num" style="font-size:10px;">{s_rel}/5</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;flex:1;">
+                  <span class="score-lbl">Prestigio</span>
+                  <div class="score-track"><div class="score-fill" style="width:{pre_pct}%;background:#059669;"></div></div>
+                  <span class="score-num" style="font-size:10px;">{s_pre}/5</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;flex:1;">
+                  <span class="score-lbl">Valor CV</span>
+                  <div class="score-track"><div class="score-fill" style="width:{cv_pct}%;background:#1A7FE8;"></div></div>
+                  <span class="score-num" style="font-size:10px;">{s_cv}/5</span>
+                </div>
               </div>
-              <div style="margin-top:8px;">{link_html}</div>
+              <div style="margin-top:10px;">{link_html}</div>
             </div>""", unsafe_allow_html=True)
 
     with tab2:
@@ -775,5 +813,5 @@ if "result_asoc" in st.session_state:
 
     st.markdown(
         '<p style="text-align:center;font-size:0.72rem;color:#94a3b8;margin-top:32px;">'
-        'ARIA Asociaciones · Portafolio Estratégico · Powered by Google Gemini 2.0 Flash</p>',
+        'ARIA Membresías · Portafolio Estratégico · Powered by Google Gemini 2.5 Flash</p>',
         unsafe_allow_html=True)
