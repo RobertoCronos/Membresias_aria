@@ -190,6 +190,7 @@ FILTROS DE EXCLUSIÓN:
 ✗ Directorios o agregadores sin comunidad institucional
 ✗ Organizaciones excesivamente locales sin impacto internacional
 ✗ Organizaciones político-partidistas o de reputación dudosa
+✗ Organismos internacionales gubernamentales y NGO
 
 PRIORIZACIÓN ESTRATÉGICA — dar mayor prioridad a:
 - Organizaciones que eleven el prestigio internacional percibido
