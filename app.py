@@ -268,7 +268,6 @@ Responde SOLO con el JSON."""
 
     model = genai.GenerativeModel(
         model_name="gemini-2.0-flash",
-        tools=[{"google_search": {}}],
         system_instruction=SYSTEM_PROMPT,
     )
     response = model.generate_content(user_message)
